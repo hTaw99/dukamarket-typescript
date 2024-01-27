@@ -11,7 +11,7 @@ export default function GlobalError({ error }: { error: Error }) {
             <h1 className="text-3xl font-bold mb-1 text-centers">
               Something went wrong
             </h1>
-            <p className="text-xl mb-4 text-centers">This may take long time</p>
+            <p className="text-xl mb-4 text-centers">{error.message}</p>
             <button className="py-2 px-4 bg-red-50 text-red-500 rounded-md">
               Try again
             </button>
