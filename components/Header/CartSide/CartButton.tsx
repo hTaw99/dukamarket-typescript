@@ -6,7 +6,7 @@ export default function CartButton() {
   const { data: cart, isFetching: isCartFetching } = useGetCart();
 
   return (
-    <button className="flex items-center gap-3">
+    <div className="flex items-center gap-3">
       <div className="relative ">
         <BsHandbag className="w-7 h-7 md:w-8 md:h-8" />
         <span
@@ -26,6 +26,6 @@ export default function CartButton() {
           </h2>
         )}
       </div>
-    </button>
+    </div>
   );
 }

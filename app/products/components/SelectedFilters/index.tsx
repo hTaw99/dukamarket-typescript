@@ -21,7 +21,6 @@ export default React.memo(function SelectedFilters() {
         } else arr.push([key, value.split(",")[1]]);
       }
     });
-    console.log(arr);
     return arr;
   }, [filters]);
 

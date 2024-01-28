@@ -22,7 +22,6 @@ export default function TableItemProduct({
   const dispatch = useAppDispatch();
   const [colorChoosed, setColorChoosed] = useState(product.colors?.[0]);
 
-  console.log("run");
   return field.name === "image" ? (
     <td key={product?.sku} className=" border-b border-slate-300 p-4">
       <div className="p-4 rounded-md ">

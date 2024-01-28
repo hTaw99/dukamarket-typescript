@@ -16,7 +16,6 @@ const ForgotPassword = () => {
   } = useForm<ForgotPasswordFormValues>();
 
   const { mutate: forgotPassword, isPending, error } = useForgotPassword();
-  console.log(error);
 
   const onSubmit: SubmitHandler<ForgotPasswordFormValues> = (data) => {
     // const emailHtml = render(<EmailForgotPassword />);

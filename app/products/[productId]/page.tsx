@@ -5,6 +5,7 @@ import Reviews from "@/components/Reviews";
 import Description from "@/components/Description";
 import { getProduct, getProducts } from "@/apis/products";
 import SwitchTabs from "@/components/singleProduct/SwitchTabs";
+import { notFound } from "next/navigation";
 
 type SingleProductPageProps = {
   params: { productId: string };
@@ -37,8 +38,12 @@ const Product = async ({ params }: SingleProductPageProps) => {
   const { productId } = params;
 
   // #########################################################
-  const { product } = await getProduct(productId, "onServer");
+  const { product, ...error } = await getProduct(productId, "onServer");
   // #########################################################
+
+  if (error && "msg" in error) {
+    notFound()
+  }
 
   return (
     <div className="container min-h-screen">

@@ -10,6 +10,7 @@ import {
 import qs from "query-string";
 import getQueryClient from "@/components/utils/getQueryClient";
 import { TFilterState } from "@/types/filter";
+import { notFound } from "next/navigation";
 
 export const productKeys = {
   all: (props: TGetProductsQueryKeyVariables) => ["products", props] as const,
@@ -17,8 +18,6 @@ export const productKeys = {
   similar: (props: TGetSimilarProductsQueryKeyVariables) =>
     ["get-similar-products", props] as const,
 };
-
-
 
 type TGetProductsQueryKeyVariables = {
   filters?: TFilterState;

@@ -41,7 +41,7 @@ const checkoutSlice = createSlice({
     //     state.myAddress = state.shippingAddress.find(
     //       (add) => add.useAsShippingAddress
     //     );
-    //     console.log(current(state.shippingAddress));
+    //     
     //   }
     // },
 

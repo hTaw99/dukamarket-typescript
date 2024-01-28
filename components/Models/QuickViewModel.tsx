@@ -10,6 +10,7 @@ import { formatPrice } from "@/lib/formatPrice";
 import CustomImage from "@/components/utils/CustomImage";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import Price from "../utils/Price";
+import Colors from "../utils/Colors";
 
 const QuickViewModel = () => {
   const { isQuickViewModelOpen } = useAppSelector((state) => state.model);
@@ -20,12 +21,11 @@ const QuickViewModel = () => {
     (state) => state.quickview.productToView
   );
 
-  const [colorChoosed, setColorChoosed] = useState("");
-  const colorName = productToView?.colors?.[0]?.name;
+  const [colorChoosed, setColorChoosed] = useState(productToView?.colors?.[0]);
 
   useEffect(() => {
-    setColorChoosed(colorName);
-  }, [colorName]);
+    setColorChoosed(productToView?.colors?.[0]);
+  }, [productToView.colors]);
 
   return (
     <Transition appear show={isQuickViewModelOpen} as={Fragment}>
@@ -102,31 +102,11 @@ const QuickViewModel = () => {
                     </ul>
 
                     {/* colors */}
-                    <div className="mt-4">
-                      <h1 className="mb-2 text-sm md:text-base ">Color:</h1>
-                      <div className="flex ">
-                        {productToView?.colors?.map((color) => (
-                          <div
-                            key={color._id}
-                            style={{
-                              border:
-                                colorChoosed === color.name
-                                  ? `solid 2px ${color.name}`
-                                  : "none",
-                            }}
-                            className={`p-1 rounded-lg `}
-                          >
-                            <div
-                              onClick={() => setColorChoosed(color.name)}
-                              style={{
-                                backgroundColor: color.name,
-                              }}
-                              className={`cursor-pointer w-6 h-6 border-red-500 rounded-md`}
-                            ></div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    <Colors
+                      colors={productToView.colors}
+                      colorChoosed={colorChoosed?.name}
+                      setColorChoosed={setColorChoosed}
+                    />
                     {/* colors */}
                   </div>
                 </div>

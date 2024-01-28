@@ -5,7 +5,6 @@ import { useRefreshToken } from "@/apis/auth";
 import { logout, setUserOnRefresh } from "@/store/features/authSlice";
 import { FaCircle } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { TooLongTimeError } from "@/lib/exception";
 
 export default function PersistLogin({ children }: { children: ReactNode }) {
   const { isAuthenticated } = useAppSelector((state) => state.auth.user);
@@ -20,7 +19,7 @@ export default function PersistLogin({ children }: { children: ReactNode }) {
   // if (error?.code === "404") {
   //   throw new Error()
   // }
-  // console.log({ data, error });
+  
   // throw new Error("Something went wrong!");
 
   useEffect(() => {

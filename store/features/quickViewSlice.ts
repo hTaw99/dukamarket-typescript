@@ -31,7 +31,6 @@ const quickViewSlice = createSlice({
   reducers: {
     setProductToView: (state, action: PayloadAction<TProductToView>) => {
       const { payload } = action;
-      console.log(payload.colors);
       state.productToView = {
         _id: payload._id,
         name: payload.name,

@@ -29,7 +29,6 @@ const OtpInput = ({
   }, [value, valueLength]);
 
   const focusToNextInput = (target: HTMLElement) => {
-    console.log({ target });
     const nextElementSibling =
       target.nextElementSibling as HTMLInputElement | null;
 

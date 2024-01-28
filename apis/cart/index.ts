@@ -59,7 +59,7 @@ export const useAddToCart = () => {
     //         },
     //       };
     //     }
-    //     // console.log(oldData);
+    //     
     //     // const newItemsAfterAddition = [...oldData?.cart?.items, product];
     //   });
     //   return prevData;

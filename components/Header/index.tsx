@@ -4,7 +4,7 @@ import Image from "next/image";
 
 // Components
 import SearchBar from "./SearchBar";
-import CartButton from "./CartSide";
+import CartSide from "./CartSide";
 import AccountContainer from "./AccountContainer";
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
           <SearchBar />
           <div className="flex gap-4 md:gap-8 items-center text-sm order-2 md:order-3">
             <AccountContainer />
-            <CartButton />
+            <CartSide />
           </div>
         </div>
       </header>

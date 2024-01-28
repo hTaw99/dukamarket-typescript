@@ -18,11 +18,9 @@ const AddToCartButton = ({
   colorId,
   productId,
 }: AddToCartButtonProp) => {
-  console.log(colorId);
   const { mutate: addToCart, isPending, isSuccess } = useAddToCart();
   const [isAddedEnd, setIsAddedEnd] = useState(false);
 
-  console.log();
 
   useEffect(() => {
     setIsAddedEnd(false);
