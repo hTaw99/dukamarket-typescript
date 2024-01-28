@@ -6,7 +6,6 @@ import PersistLogin from "@/components/PersistedLogin";
 import ProviderWrapper from "@/components/Wrappers/Provider";
 import QueryClientProviderWrapper from "@/components/Wrappers/QueryClientProvider";
 import { Inter } from "next/font/google";
-import CartSideModel from "@/components/Models/CartSideModel";
 import QuickViewModel from "@/components/Models/QuickViewModel";
 import PictureModel from "@/components/Models/PictureModel";
 import CompareModel from "@/components/Models/CompareModel";

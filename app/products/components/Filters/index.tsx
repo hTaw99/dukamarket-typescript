@@ -1,22 +1,10 @@
-import { baseURL } from "@/apis/AppClient";
 import Menu from "../Menu";
-
-async function getCategories() {
-  const res = await fetch(`${baseURL}/categories`);
-  return res.json();
-}
-async function getBrands() {
-  const res = await fetch(`${baseURL}/brands`);
-  return res.json();
-}
+import { getBrands, getCategories } from "@/apis/public";
 
 export default async function FiltersComponent() {
-  const categories = await getCategories();
-  const brands = await getBrands();
+  const categories = await getCategories("onServer");
+  const brands = await getBrands("onServer");
 
-  // const { data: categories, isPending: loadCategories } = useGetCategories();
-  // const { data: brands, isPending: loadBrands } = useGetBrands();
-  // if (loadCategories || loadBrands) return <div>Loading ...</div>;
   return (
     <div className="flex gap-2 ">
       <Menu

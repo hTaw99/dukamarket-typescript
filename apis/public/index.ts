@@ -27,17 +27,24 @@ export const useGetCategories = () => {
 };
 
 // ######################### Get All Brands #########################
-async function getBrands(): Promise<TBrands> {
-  const { data } = await axiosDefault({
-    url: "/brands",
-    method: "GET",
-  });
-  return data;
+export async function getBrands(
+  option: "onServer" | "onClient"
+): Promise<TBrands> {
+  if (option === "onServer") {
+    const res = await fetch(`${baseURL}/brands`);
+    return res.json();
+  } else {
+    const { data } = await axiosDefault({
+      url: "/brands",
+      method: "GET",
+    });
+    return data;
+  }
 }
 
 export const useGetBrands = () => {
   return useQuery({
     queryKey: ["get-brands"],
-    queryFn: getBrands,
+    queryFn: () => getBrands("onClient"),
   });
 };

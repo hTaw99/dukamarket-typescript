@@ -1,5 +1,3 @@
-"use client";
-
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type TProduct = {
@@ -14,11 +12,19 @@ type InitialState = {
   recentlyViewedProducts: TProduct[];
 };
 
+// const initialState: InitialState = {
+//   recentlyViewedProducts:
+//     typeof window !== "undefined"
+//       ? JSON.parse(localStorage.getItem("browserHistory") || "") || []
+//       : [],
+// };
+
+const browserHistory =
+  typeof window !== "undefined" ? localStorage.getItem("browserHistory") : null;
+
 const initialState: InitialState = {
   recentlyViewedProducts:
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("browserHistory") || "") || []
-      : [],
+    browserHistory && browserHistory !== "" ? JSON.parse(browserHistory) : [],
 };
 
 const recentlyViewedProductsSlice = createSlice({
